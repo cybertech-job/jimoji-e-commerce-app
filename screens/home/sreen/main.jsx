@@ -1,10 +1,20 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import UserAvatar from "../components/userAvatar"
+import Hero from "../components/Hero"
+import Latest from "../components/Latest"
+import Trending from "../components/Trending"
 
-export default function main() {
+
+
+
+export default function Main() {
   return (
     <View>
-      <Text>main</Text>
+      <UserAvatar/>
+      <Hero/>
+      <Latest />
+      <Trending />
     </View>
   )
 }

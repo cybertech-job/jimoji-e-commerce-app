@@ -1,17 +1,18 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
+import Main from "../.././screens/home/sreen/main"
 
 export default function index() {
   return (
-    <View style={styles.body}>
-      <Text style={styles.text1}>Home Page</Text>
-    </View>
+    <ScrollView vertical={true} style={styles.body}>
+      <Main/>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
   body: {
-    flex: 1,
-    paddingTop: 32,
+    flexGrow: 1,
+    paddingTop: 50,
     backgroundColor: "#0D0F18"
   },
   text1: {
