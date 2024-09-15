@@ -19,7 +19,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: "#0D0F18",
-          height: 100
+          
         }
       }}>
       <Tabs.Screen
@@ -29,7 +29,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <AntDesign 
             name="home" 
-            size={34} 
+            size={20} 
             color={color} 
             style={{ marginBottom: -20 }}
             />
@@ -44,7 +44,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <MaterialCommunityIcons 
             name="store-search-outline" 
-            size={34} 
+            size={20} 
             color={color} 
             style={{ marginBottom: -20 }}
             />
@@ -60,7 +60,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
           <AntDesign 
           name="menu-fold" 
-          size={34} 
+          size={20} 
           color={color}
           style={{ marginBottom: -20 }}
           />
