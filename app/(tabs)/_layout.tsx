@@ -1,9 +1,13 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { View } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,24 +15,57 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors["dark"].tint,
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#0D0F18",
+          height: 100
+        }
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <AntDesign 
+            name="home" 
+            size={34} 
+            color={color} 
+            style={{ marginBottom: -20 }}
+            />
+
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="search"
         options={{
-          title: 'Explore',
+          title: 'Store Search',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <MaterialCommunityIcons 
+            name="store-search-outline" 
+            size={34} 
+            color={color} 
+            style={{ marginBottom: -20 }}
+            />
+
+            // <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="menu"
+        options={{
+          title: 'Menu',
+          tabBarIcon: ({ color, focused }) => (
+          <AntDesign 
+          name="menu-fold" 
+          size={34} 
+          color={color}
+          style={{ marginBottom: -20 }}
+          />
+          
+            
           ),
         }}
       />

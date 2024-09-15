@@ -27,8 +27,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+    <ThemeProvider value={DarkTheme}>
+      <Stack
+        screenOptions={{
+          contentStyle: {
+            backgroundColor: '#0D0F18', // Set your desired background color here
+          },
+        }}
+      >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
