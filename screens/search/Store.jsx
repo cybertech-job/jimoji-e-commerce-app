@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
+import UserAvatar from '../home/components/userAvatar';
 
 export default function Store() {
   const userImage = require("../../assets/img/useravatar.png")
@@ -80,16 +81,7 @@ export default function Store() {
     <View style={{padding: 10}}>
 <View style={styles.body}>
 <View style={{display: "flex", flex: 1, flexDirection: "column"}}>
-<View style={{display: "flex", justifyContent: "space-between", flexDirection: "row", marginBottom: 15}}>
-  <View style={styles.firstCont}>
-    <Image source={userImage} style={styles.image}/>
-    <Text style={styles.text}>Hi, Maxwell...</Text>
-  </View>
-
-  <View>
-    <Ionicons name="notifications-outline" size={46} color="white" />
-  </View>
-  </View>
+<UserAvatar />
 
   <View style={styles.searchBar}>
         <Ionicons name="search" size={24} color="rgba(255, 255, 255, 0.25)" />
@@ -140,11 +132,12 @@ const styles= StyleSheet.create({
     backgroundColor: "rgba(156, 147, 147, 0.38)",
     opacity: 33,
     borderRadius: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    overflow: "hidden"
+    overflow: "hidden",
+    marginTop: 10, 
 },
   firstCont: {
       display: "flex",
@@ -158,6 +151,6 @@ const styles= StyleSheet.create({
       fontWeight: "bold"
   },
   image: {
-
+    marginTop: 11, 
   }
 })
