@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import Store from "../../screens/search/Store"
 
 export default function Search() {
   return (
     <View style={styles.body}>
-      <Text style={styles.text1}>Search Page</Text>
+      <Store />
     </View>
   )
 }
@@ -15,7 +16,4 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     backgroundColor: "#0D0F18"
   },
-  text1: {
-    color: 'white'
-  }
 });
