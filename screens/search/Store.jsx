@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, Image, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import UserAvatar from '../home/components/main/userAvatar';
 
-export default function Store() {
-  const userImage = require("../../assets/img/useravatar.png")
+export default function Store({navigation}) {
   const product = require("../../assets/img/Vector.png")
   const logo = require("../../assets/img/logo.png")
+
+  const [title, setTitle] = useState()
 
   const data = [
     { id: '1', title: 'IPhones' },
@@ -37,11 +38,11 @@ export default function Store() {
     </TouchableOpacity>
   );
 
-  const list = ({ item }) =>{
+  const list = ({ item}) =>{
     return(
-    <View style={{display: 'flex', flexDirection: "column", marginVertical: 5 }}>
-    <TouchableOpacity style={{display: 'flex', flexDirection: "row", alignItems: 'center', gap: 10}}>
-    <View className="container" style={{marginTop: 8, marginHorizontal: 10, display: "flex", flexDirection: "row", gap: 15}}>
+    <TouchableOpacity style={{ display: 'flex', flexDirection: "column", marginVertical: 10 }} >
+    <TouchableOpacity style={{display: 'flex', flexDirection: "row", alignItems: 'center', gap: 10}} onPress={() => navigation.navigate('ProductView', {title: item.title})}>
+    <View className="container" style={{marginTop: 10, marginHorizontal: 6, display: "flex", flexDirection: "row", gap: 15}}>
       <LinearGradient
         colors={['#0A0F77', '#40465B']}
         start={{ x: 0, y: 0 }}   // Starting point (bottom-left)
@@ -71,46 +72,43 @@ export default function Store() {
 </View>
  </View>
 </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
 
     )
     
   }
 
   return (
-    <View style={{padding: 10}}>
+<View style={{ flex: 1, backgroundColor: "#0D0F18", paddingHorizontal: 18, paddingTop: 50}}>
 <View style={styles.body}>
-<View style={{display: "flex", flex: 1, flexDirection: "column"}}>
-<UserAvatar />
+  <View style={{display: "flex", flex: 1, flexDirection: "column"}}>
+    <UserAvatar />
 
-  <View style={styles.searchBar}>
+      <View style={styles.searchBar}>
         <Ionicons name="search" size={24} color="rgba(255, 255, 255, 0.25)" />
         <TextInput 
             placeholder="Search"
             placeholderTextColor={"rgba(255, 255, 255, 0.25)"}
             style={styles.input}
         />
+      </View>
+    </View>
   </View>
-</View>
-</View>
-
 <View >
-
 
 <View style={{ marginTop: 10}}> 
       <FlatList
           data={products} // The data array
           renderItem={list} // The render method for each item
           keyExtractor={item => item.id} // Key extractor for unique keys
-          style={{marginTop: 2, width: "100%", }}
           horizontal={false}
-          showsVerticalScrollIndicator={true}
+          showsVerticalScrollIndicator={false}
+          scrollEnabled={true}
       />
-</View>
-
-</View>
-
     </View>
+  </View>
+</View>
+
   )
 }
 
