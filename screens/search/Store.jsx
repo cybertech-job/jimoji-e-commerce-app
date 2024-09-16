@@ -105,7 +105,7 @@ export default function Store() {
 <View >
 
 
-<View style={{ marginTop: 15}}> 
+<View style={{ marginTop: 10}}> 
       <FlatList
           data={products} // The data array
           renderItem={list} // The render method for each item
