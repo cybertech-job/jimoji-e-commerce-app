@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         height: 28, // Gap between items
       },
       searchBar: {
-        width: "60%",
+        width: "50%",
         height: 49,
         backgroundColor: "rgba(156, 147, 147, 0.38)",
         opacity: 33,
