@@ -4,7 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 export default function UserAvatar() {
-    const userImage = require("../../../assets/img/useravatar.png")
+    const userImage = require("@/assets/img/useravatar.png")
 
 
   return (
@@ -15,7 +15,7 @@ export default function UserAvatar() {
       </View>
 
       <View>
-        <Ionicons name="notifications-outline" size={46} color="white" />
+        <Ionicons name="notifications-outline" size={30} color="white" />
       </View>
     </View>
   )
@@ -40,6 +40,7 @@ const styles= StyleSheet.create({
         fontWeight: "bold"
     },
     image: {
-
+      height: 30,
+      width: 30
     }
 })

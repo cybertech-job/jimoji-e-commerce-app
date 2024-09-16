@@ -1,13 +1,13 @@
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
-export default function Trending() {
+export default function Latest() {
 
     const data = [
-        { id: '1', title: 'Samsung Z fold 5', price: '499.00', image: require('../../../assets/img/fold.png') },
-        { id: '2', title: 'Iphone pro max', price: '1000.00', image: require('../../../assets/img/iphone.png') },
-        { id: '3', title: 'Samsung S21 ultra', price: '355.00', image: require('../../../assets/img/s21.png') },
-        { id: '4', title: 'Samsung Z fold 5', price: '499.00', image: require('../../../assets/img/fold.png') },
+        { id: '1', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
+        { id: '2', title: 'Iphone pro max', price: '1000.00', image: require('@/assets/img/iphone.png') },
+        { id: '3', title: 'Samsung S21 ultra', price: '355.00', image: require('@/assets/img/s21.png') },
+        { id: '4', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
       ];
 
       const renderItem = ({ item }) => (
@@ -17,13 +17,14 @@ export default function Trending() {
             </View>
         
           <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title}>{item.price}</Text>
         </View>
       );
 
 
   return (
     <View style={{paddingTop: 20,}}>
-        <Text style={{color: "white",marginLeft: 18, fontSize: 16, fontWeight: "bold"}}>Trending</Text>
+        <Text style={{color: "white",marginLeft: 18, fontSize: 16, fontWeight: "bold"}}>Latest</Text>
 
         <FlatList
         data={data} // The data array
