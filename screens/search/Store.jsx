@@ -132,11 +132,12 @@ const styles= StyleSheet.create({
     backgroundColor: "rgba(156, 147, 147, 0.38)",
     opacity: 33,
     borderRadius: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    overflow: "hidden"
+    overflow: "hidden",
+    marginTop: 10, 
 },
   firstCont: {
       display: "flex",
@@ -150,6 +151,6 @@ const styles= StyleSheet.create({
       fontWeight: "bold"
   },
   image: {
-
+    marginTop: 11, 
   }
 })
