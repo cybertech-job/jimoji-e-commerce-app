@@ -3,8 +3,8 @@ import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-export default function Hero() {
-    const image = require("../../../assets/img/laptop.png")
+export default function Hero({navigation}) {
+    const image = require("@/assets/img/laptop.png")
     const data = [
         { id: '1', title: 'IPhone' },
         { id: '2', title: 'MacBooks' },
@@ -15,7 +15,7 @@ export default function Hero() {
       ];
 
       const renderItem = ({ item }) => (
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity style={styles.item}  onPress={() => navigation.navigate('HomeProdct')}>
           <Text style={styles.title}>{item.title}</Text>
         </TouchableOpacity>
       );

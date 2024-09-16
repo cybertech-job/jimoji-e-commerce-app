@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
-import UserAvatar from '../home/components/userAvatar';
+import UserAvatar from '../home/components/main/userAvatar';
 
 export default function Store() {
   const userImage = require("../../assets/img/useravatar.png")
