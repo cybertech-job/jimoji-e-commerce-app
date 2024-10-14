@@ -4,6 +4,7 @@ import CustomKeypad from '../components/Keypad'; // Import the custom keypad
 import Logo from '../components/Logo';
 import * as Animatable from 'react-native-animatable';
 import check from '../../../assets/img/check.png'
+
 const OTPVerificationScreen = ({navigation}) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,14 +48,33 @@ const OTPVerificationScreen = ({navigation}) => {
       }).start(() => {
         setModalVisible(false);
       });
-    }, 2000); // Modal will close after 2 seconds
+    }, 3000); // Modal will close after 3 seconds
   };
 
   useEffect(() => {
     if (modalVisible) hideModal();
   }, [modalVisible]);
 
+  const [timer, setTimer] = useState(30); // Initial countdown value in seconds
+  const [isActive, setIsActive] = useState(true); // Timer active state
 
+  useEffect(() => {
+    let interval = null;
+    if (isActive && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTime) => prevTime - 1);
+      }, 1000); // Countdown by 1 second
+    } else if (timer === 0) {
+      clearInterval(interval); // Stop countdown when it reaches 0
+      setIsActive(false);
+    }
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [isActive, timer]);
+
+  const resetTimer = () => {
+    setTimer(30); // Reset the timer to 30 seconds
+    setIsActive(true); // Start the timer again
+  };
   return (
     <View style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <Logo />
@@ -75,19 +95,24 @@ const OTPVerificationScreen = ({navigation}) => {
           />
         ))}
       </View>
-
-      <Text style={{color: "white", textAlign: "center", fontSize: 15, marginHorizontal: 20}}>Didnt receive a code ? Resend code in <Text style={{color: "blue"}}>30s</Text></Text>
-
+      {timer > 0 ? (
+          <Text style={{color: "white", textAlign: "center", fontSize: 15, marginHorizontal: 20, alignItems: "center"}}> 
+          Didnt receive a code ? Resend code in <Text style={{color: "blue", alignItems: "center"}}>{timer + "s"}</Text> 
+          </Text>
+        ) : (
+      <TouchableOpacity onPress={resetTimer} >
+        <Text style={{  color: '#fff', fontSize: 15, textAlign: "center", fontWeight: "bold"}}>Resend Code</Text>
+      </TouchableOpacity>
+        )
+      }
       <View style={{marginTop: 20}}>
       <TouchableOpacity style={styles.button1} onPress={showModal}>
         <Text style={{  color: '#fff', fontSize: 30, textAlign: "center", fontWeight: "bold"}}>Verify</Text>
       </TouchableOpacity>
       </View>
 
-      <Text style={{color: "white", textAlign: "center", marginTop: 20}}>
-              From messages</Text>
-    <Text style={{color: "white", textAlign: "center", fontSize: 20}}>
-              ****</Text>
+      <Text style={{color: "white", textAlign: "center", marginTop: 20}}>From messages</Text>
+      <Text style={{color: "white", textAlign: "center", fontSize: 20}}>****</Text>
 
       {/* Custom Keypad */}
       <CustomKeypad onKeyPress={handleKeyPress} />
@@ -113,7 +138,10 @@ const OTPVerificationScreen = ({navigation}) => {
 
             <TouchableOpacity
               style={styles.okButton}
-              onPress={() => setModalVisible(false)}
+              onPress={() => {
+                navigation.navigate("Login")
+                setModalVisible(false)
+              }}
             >
               <Text style={styles.okButtonText}>Ok</Text>
             </TouchableOpacity>
@@ -158,11 +186,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff',
     fontSize: 18,
-  },
-  verifyButton: {
-    backgroundColor: '#0023A3',
-    padding: 15,
-    borderRadius: 8,
   },
   buttonText: {
     color: '#fff',
