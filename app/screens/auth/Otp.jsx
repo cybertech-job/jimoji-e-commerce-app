@@ -1,15 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Modal, Animated , StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
-import CustomKeypad from '../components/Keypad'; // Import the custom keypad
-import Logo from '../components/Logo';
+import CustomKeypad from '../../../screens/auth/components/Keypad'; // Import the custom keypad
+import Logo from '../../../screens/auth/components/Logo';
 import * as Animatable from 'react-native-animatable';
 import check from '../../../assets/img/check.png'
+import { Stack, useRouter } from 'expo-router';
 
 const OTPVerificationScreen = ({navigation}) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
   const animationValue = useRef(new Animated.Value(0)).current;
+
+  const router = useRouter();  // useRouter hook for navigation
+
 
 
   const handleKeyPress = (key) => {
@@ -77,6 +81,7 @@ const OTPVerificationScreen = ({navigation}) => {
   };
   return (
     <View style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <Stack.Screen options={{ headerShown: false }} />
       <Logo />
       <Text style={{   color: '#fff', fontSize: 25, fontWeight: '600', textAlign: 'center', marginVertical: 20}}>OTP Verification</Text>
       <Text style={{color: "white", textAlign: "center", fontSize: 17, marginHorizontal: 20}}>A one time code will be sent to your registered phone number . Verify phone to continue.</Text>
@@ -139,7 +144,7 @@ const OTPVerificationScreen = ({navigation}) => {
             <TouchableOpacity
               style={styles.okButton}
               onPress={() => {
-                navigation.navigate("Login")
+                router.push('/screens/auth/Login')
                 setModalVisible(false)
               }}
             >

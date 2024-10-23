@@ -1,18 +1,25 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { StatusBar } from 'react-native';
+import { RecoilRoot, useRecoilState } from 'recoil';
+import {IsUserLoggedInState} from "@/state/atoms/loginstate"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default function App() {
+  const [loggedIn, setLoggedIn] = useRecoilState(IsUserLoggedInState)
   const colorScheme = useColorScheme();
+  const router = useRouter();  // useRouter hook for navigation
+  
+
+
+  // Load custom fonts
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -20,8 +27,15 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      if(loggedIn) {
+        router.replace('/(tabs)');
+
+      }else {
+        router.replace('/screens/auth/Welcome');
+        
+      }
     }
-  }, [loaded]);
+  }, [loaded, IsUserLoggedInState]);
 
   if (!loaded) {
     return null;
@@ -29,16 +43,17 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={DarkTheme}>
+      <StatusBar barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'} />
       <Stack
         screenOptions={{
           contentStyle: {
-            backgroundColor: '#0D0F18', // Set your desired background color here
+            backgroundColor: '#0D0F18', // Global background color for all screens
+            
           },
+          headerShown: false
         }}
       >
-
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
   );

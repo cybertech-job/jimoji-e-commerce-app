@@ -1,11 +1,22 @@
 import {View, Text, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvoidingView} from 'react-native'
-import Logo from '../components/Logo'
-import CustomInput from '../components/Input'
-import Line from '../components/Line'
-import LoginOptions from '../components/LoginOptions'
+import Logo from '../../../screens/auth/components/Logo'
+import CustomInput from '../../../screens/auth/components/Input'
+import Line from '../../../screens/auth/components/Line'
+import LoginOptions from '../../../screens/auth/components/LoginOptions'
+import { Stack, useRouter } from 'expo-router'
+import { useRecoilState } from 'recoil'
+import { IsUserLoggedInState } from '@/state/atoms/loginstate'
+
+
 const Login = ({navigation}) => {
+  const [loggedIn, setLoggedIn] = useRecoilState(IsUserLoggedInState)
+
+
+  const router = useRouter();  // useRouter hook for navigation
+
   return (
   <KeyboardAvoidingView style={styles.container}> 
+      <Stack.Screen options={{ headerShown: false }} />
   <Logo />
   <View style={{ marginVertical: 10 }}>
     <Text style={styles.text}>Sign in</Text>
@@ -23,7 +34,15 @@ const Login = ({navigation}) => {
   </View>
 
   <View style={{ marginTop: 40 }}>
-    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+    <TouchableOpacity style={styles.button} 
+    onPress={() => 
+      {
+        setLoggedIn(true)
+        router.replace('/(tabs)')
+      }
+    }
+    
+    >
       <Text style={styles.buttonText}>Sign in</Text>
     </TouchableOpacity>
   </View>
