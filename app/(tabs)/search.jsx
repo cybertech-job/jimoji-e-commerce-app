@@ -1,19 +1,18 @@
-import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import Store from "../../screens/search/Store"
+import ProductsView from "../../screens/search/ProductsView"
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function Search() {
   return (
-    <View style={styles.body}>
-      <Store />
-    </View>
+      <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="Store" >
+      <Stack.Screen name="Store" component={Store}  options={{ headerShown: false }}  />
+      <Stack.Screen name="ProductView" component={ProductsView} options={{ headerShown: false }} />
+      </Stack.Navigator>
+      </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    paddingTop: 32,
-    backgroundColor: "#0D0F18"
-  },
-});
