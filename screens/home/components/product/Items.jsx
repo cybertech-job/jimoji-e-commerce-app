@@ -1,9 +1,10 @@
 import { View, Text, ScrollView, StyleSheet, Image, FlatList, TouchableOpacity, Platform } from 'react-native'
 import React from 'react'
+import { useRouter } from 'expo-router';
 
-export default function Items() {
+export default function Items({navigation}) {
     const ItemSeparator = () => <View style={styles.separator} />;
-
+  const router = useRouter()
 
     const data = [
         { id: '1', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
@@ -20,8 +21,8 @@ export default function Items() {
         { id: '12', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
       ];
 
-      const renderItem = ({ item }) => (
-        <TouchableOpacity style={styles.item}>
+      const renderItem = ({ item,  }) => (
+        <TouchableOpacity style={styles.item} onPress={() => router.push('/screens/ProductDetails')}>
             <View style={styles.imgbg}>
                 <Image source={item.image} />
             </View>
@@ -40,6 +41,7 @@ export default function Items() {
         style={styles.list}
         numColumns={2}
         ItemSeparatorComponent={ItemSeparator} // Use ItemSeparatorComponent for gaps
+        showsVerticalScrollIndicator={false}
       />
   )
 }

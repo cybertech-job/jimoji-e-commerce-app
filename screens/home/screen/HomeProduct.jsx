@@ -9,7 +9,9 @@ export default function HomeProduct({navigation}) {
      <Head
         navigation={navigation}
      />
-     <Items/>
+     <Items
+       navigation={navigation}
+     />
     </View>
   )
 }

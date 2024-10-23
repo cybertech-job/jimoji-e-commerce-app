@@ -15,7 +15,7 @@ export default function Hero({navigation}) {
       ];
 
       const renderItem = ({ item }) => (
-        <TouchableOpacity style={styles.item}  onPress={() => navigation.navigate('HomeProdct')}>
+        <TouchableOpacity style={styles.item}  onPress={() => navigation.navigate('HomeProduct')}>
           <Text style={styles.title}>{item.title}</Text>
         </TouchableOpacity>
       );
