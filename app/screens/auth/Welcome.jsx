@@ -1,10 +1,17 @@
 import React from 'react'
 import {View, Text, TouchableOpacity, TextInput, Image, StyleSheet} from 'react-native'
 import user from '../../../assets/img/image.png'
-import Logo from '../components/Logo' 
-import Line from '../components/Line'
+import Logo from '../../../screens/auth/components/Logo' 
+import Line from '../../../screens/auth/components/Line'
+import { useRouter } from 'expo-router'
 const Welcome = ({navigation}) => {
+
+  const router = useRouter();  // useRouter hook for navigation
+
+
+
   return (
+    
     <View style={styles.container}>
       <Logo />
 
@@ -13,7 +20,7 @@ const Welcome = ({navigation}) => {
       </View>
 
       <View>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Signup')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.replace('/screens/auth/Signup')}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
       </View>
@@ -21,7 +28,7 @@ const Welcome = ({navigation}) => {
       <Line />
 
       <View style={{}}>
-      <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity style={styles.button1} onPress={() => router.replace('/screens/auth/Login')}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
       </View>

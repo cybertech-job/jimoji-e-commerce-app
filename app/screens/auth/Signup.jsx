@@ -1,13 +1,20 @@
 import React from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView} from 'react-native'
-import Logo from '../components/Logo'
-import CustomInput from '../components/Input'
-import Line from '../components/Line'
-import LoginOptions from '../components/LoginOptions'
+import Logo from '../../../screens/auth/components/Logo'
+import CustomInput from '../../../screens/auth/components/Input'
+import Line from '../../../screens/auth/components/Line'
+import LoginOptions from '../../../screens/auth/components/LoginOptions'
+import { Stack, useRouter } from 'expo-router'
 
-const Signup = ({navigation}) => {
+const Signup = ({}) => {
+  const router = useRouter();  // useRouter hook for navigation
+
+
+
+
   return (
     <KeyboardAvoidingView style={styles.container}> 
+    <Stack.Screen options={{ headerShown: false }} />
     <Logo />
     <Text style={styles.text}>Sign Up</Text>
     <CustomInput placeholder="Username" iconName="user-circle-o"/>
@@ -15,7 +22,7 @@ const Signup = ({navigation}) => {
     <CustomInput placeholder="Phone number" iconName="phone"/>
     <CustomInput placeholder="Password" iconName="key"/>
     <View style={{marginTop: 40}}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Otp')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/screens/auth/Otp')}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
