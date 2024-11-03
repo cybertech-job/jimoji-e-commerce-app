@@ -3,14 +3,14 @@ import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-export default function UserAvatar() {
+export default function UserAvatar({navigation}) {
     const userImage = require("@/assets/img/useravatar.png")
 
 
   return (
     <View style={styles.body}>
       <View style={styles.firstCont}>
-        <Image source={userImage} style={styles.image}/>
+        <Image source={userImage} style={styles.image} onPress={navigation.navigate("user")}/>
         <Text style={styles.text}>Hi, Maxwell...</Text>
       </View>
 

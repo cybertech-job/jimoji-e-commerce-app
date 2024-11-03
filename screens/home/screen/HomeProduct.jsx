@@ -1,17 +1,20 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
 import Head from '@/screens/home/components/product/Head'
 import Items from '@/screens/home/components/product/Items'
 
 export default function HomeProduct({navigation}) {
+  const [searchText, setSearchText] = useState('');
   return (
     <View style={styles.body}>
      <Head
-        navigation={navigation}
+        navigation={navigation} onSearch={(text) => setSearchText(text)}
      />
-     <Items
-       navigation={navigation}
-     />
+     {searchText === '' ? (
+     <Items navigation={navigation} />
+    ) : (
+      <Text style={{ color: '#888', textAlign: 'center' }}>No Results</Text>
+    )}
     </View>
   )
 }

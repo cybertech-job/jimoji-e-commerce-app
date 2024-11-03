@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text, StyleSheet, TextInput, Image, FlatList, TouchableOpacity, Platform } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -6,6 +6,7 @@ export default function ProductsView({route, navigation}) {
     const userImage = require("@/assets/img/useravatar.png")
     const ItemSeparator = () => <View style={styles.separator} />;
     const { title } = route.params
+    const [searchText, setSearchText] = useState('');
 
     const data = [
         { id: '1', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
@@ -50,6 +51,8 @@ export default function ProductsView({route, navigation}) {
                 placeholder="Search"
                 placeholderTextColor={"rgba(255, 255, 255, 0.25)"}
                 style={styles.input}
+                onChangeText={(text) => setSearchText(text)}
+            value={searchText}
             />
         </View>
       <View>
@@ -61,6 +64,7 @@ export default function ProductsView({route, navigation}) {
 <View style={{width: "100%", backgroundColor: "white", height: 75, borderRadius: 20, marginVertical: 5, alignItems: 'center', justifyContent: 'center'}}>
     <Text style={{textAlign: 'center', fontWeight: "bold", fontSize: 50}}>{title}</Text>
 </View>
+{searchText === '' ? (
         <FlatList
         data={data} // The data array
         renderItem={renderItem} // The render method for each item
@@ -70,6 +74,9 @@ export default function ProductsView({route, navigation}) {
         showsVerticalScrollIndicator= {false}
         ItemSeparatorComponent={ItemSeparator} // Use ItemSeparatorComponent for gaps
       />
+    ) : (
+      <Text style={{ color: '#888', textAlign: 'center' }}>No Results</Text>
+    )}
     </View>
 
   )

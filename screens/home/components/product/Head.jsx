@@ -3,7 +3,7 @@ import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-export default function Head({navigation}) {
+export default function Head({navigation, onSearch}) {
     const data = [
         { id: '1', title: 'X Series' },
         { id: '2', title: '11 Series' },
@@ -40,6 +40,7 @@ export default function Head({navigation}) {
                 placeholder="Search"
                 placeholderTextColor={"rgba(255, 255, 255, 0.25)"}
                 style={styles.input}
+                onChangeText={onSearch}
             />
         </View>
 

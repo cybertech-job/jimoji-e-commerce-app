@@ -7,6 +7,7 @@ import UserAvatar from '../home/components/main/userAvatar';
 export default function Store({navigation}) {
   const product = require("../../assets/img/Vector.png")
   const logo = require("../../assets/img/logo.png")
+  const [searchText, setSearchText] = useState('');
 
   const [title, setTitle] = useState()
 
@@ -90,6 +91,8 @@ export default function Store({navigation}) {
             placeholder="Search"
             placeholderTextColor={"rgba(255, 255, 255, 0.25)"}
             style={styles.input}
+            onChangeText={(text) => setSearchText(text)}
+            value={searchText}
         />
       </View>
     </View>
@@ -97,6 +100,7 @@ export default function Store({navigation}) {
 <View >
 
 <View style={{ marginTop: 10}}> 
+    {searchText === '' ? (
       <FlatList
           data={products} // The data array
           renderItem={list} // The render method for each item
@@ -105,10 +109,12 @@ export default function Store({navigation}) {
           showsVerticalScrollIndicator={false}
           scrollEnabled={true}
       />
+    ) : (
+      <Text style={{ color: '#888', textAlign: 'center' }}>No Results</Text>
+    )}
     </View>
   </View>
 </View>
-
   )
 }
 
