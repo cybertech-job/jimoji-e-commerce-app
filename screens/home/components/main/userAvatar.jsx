@@ -1,16 +1,18 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import { useRouter } from 'expo-router';
 
 export default function UserAvatar({navigation}) {
     const userImage = require("@/assets/img/useravatar.png")
-
+    const router = useRouter();
 
   return (
     <View style={styles.body}>
       <View style={styles.firstCont}>
-        <Image source={userImage} style={styles.image} onPress={navigation.navigate("user")}/>
+        <TouchableOpacity onPress={() => router.push('/screens/profile/User')}>
+        <Image source={userImage} style={styles.image} />
+        </TouchableOpacity>
         <Text style={styles.text}>Hi, Maxwell...</Text>
       </View>
 

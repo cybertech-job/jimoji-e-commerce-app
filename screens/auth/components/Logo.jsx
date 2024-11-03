@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <View style={{marginHorizontal: "auto", padding:6 }}>
     <Image source={appLogo} style={{height: 55, width:80}} alt='logo' />
-    <Text style={{color: "white", textAlign: "center"}} > ... Jimoji-Gadgets ... </Text>
+    <Text style={{color: "white", textAlign: "center", fontWeight:"bold", fontSize:20}} > ... Jimoji-Gadgets ... </Text>
     </View>
   )
 }

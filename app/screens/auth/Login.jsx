@@ -54,9 +54,11 @@ const Login = ({navigation}) => {
   <Text style={{ color: "white", textAlign: "center", marginTop: 75 }}>
     By using our services, you agree to our
   </Text>
+  <TouchableOpacity onPress={() => router.push('/screens/profile/Terms')}>
   <Text style={{ color: "blue", textAlign: "center", textDecorationLine: "underline" }}>
     Terms & conditions
   </Text>
+  </TouchableOpacity>
 </KeyboardAvoidingView>
 
   )

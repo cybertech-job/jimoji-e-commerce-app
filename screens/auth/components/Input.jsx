@@ -10,6 +10,7 @@ const CustomInput = ({ placeholder, iconName, }) => {
         style={styles.input} 
         placeholder={placeholder} 
         placeholderTextColor="#8c8c8c"
+        secureTextEntry={placeholder === "Password"? true : false}
       />
     </View>
   );

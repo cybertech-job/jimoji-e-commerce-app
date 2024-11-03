@@ -1,29 +1,68 @@
-import {View, Text, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvoidingView} from 'react-native'
-import Logo from '../../../screens/auth/components/Logo'
+import {View, Text, TouchableOpacity, Switch, Image, StyleSheet, KeyboardAvoidingView} from 'react-native'
 import { Stack, useRouter } from 'expo-router'
-import { useRecoilState } from 'recoil'
-import { IsProfileScreen } from '../../../state/atoms/profilestate'
+import Header from '../../../components/profileComponents/header';
+import Input from '../../../components/profileComponents/inputfield';
+import React, {useState} from 'react'
 
-
-const User = ({navigation}) => {
-  const [profile, setProfile] = useRecoilState(IsProfileScreen)
-
-
+const Setting = ({title, value, type, onPress, }) =>{
+      return(
+           <View style={{display: "flex", flexDirection: "row", height: 50, alignItems: "center"}} onPress={onPress}>
+          <Text style={{color: "white", flex: 1, fontSize: 20, fontWeight: "bold"}}>Notifications</Text>
+          
+          <Switch value={value}
+          onValueChange={(value) => onPress(value)}
+          trackColor={{ false: 'rgba(64, 70, 91, 1)', true: 'rgba(64, 70, 91, 1)' }} // Dark gray color when off
+          thumbColor={value ? 'rgba(0, 49, 176, 1)' : '#6A6A6A'} // Blue when on, dark gray when off
+        //   ios_backgroundColor="#3A3A3A"
+          style={styles.switch} />
+        </View>
+      )
+  }
+const User = () => {
+  const userImage = require("@/assets/img/maxlarge.png")
   const router = useRouter();  // useRouter hook for navigation
+  const [faceid, setFaceid] = useState()
 
   return (
-  <KeyboardAvoidingView style={styles.container}> 
+  <View style={styles.container}> 
       <Stack.Screen options={{ headerShown: false }} />
-  <Logo />
-  <View style={{ marginVertical: 10 }}>
-    <Text style={styles.text}>Sign in</Text>
-    <Text style={{ color: "white", textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
-      Welcome back
-    </Text>
-  </View>
+      <Header />
 
-</KeyboardAvoidingView>
+    <View style={{ marginVertical: 10, justifyContent: "center",}}>
+        <Image source={userImage} style={{ width: 90, height: 90,  marginHorizontal: "auto"}}  resizeMode='contain'/>
+        <Text style={styles.text}>Maxwell Bruxelles</Text>
+    </View>
+    <View>
+        <Text style={{color:"#6A6A6A", textDecorationLine: "underline"}}>Basic Settings</Text>
+    </View>
+    
+    <Input label="Username" placeholder="MaxwellBruxelles" />
+    <Input label="Email" placeholder="maximbrux2023@example.com" />
+    <Input label="Phone number" placeholder="+43 432534345" />
+    <Input label="Password" placeholder="Password" />
+    <Input label="Language" placeholder="English" />
 
+    <View>
+        <Text style={{color:"#6A6A6A", textDecorationLine: "underline"}}>Basic Settings</Text>
+    </View>
+
+    <Setting 
+        title="FaceID"
+        value={faceid}
+        type="switch"
+        onPress={(faceid) =>setFaceid(faceid)
+        }
+        />
+        <Setting 
+        title="FaceID"
+        value={faceid}
+        type="switch"
+        onPress={(faceid) =>setFaceid(faceid)
+        }
+        />
+          
+
+</View>
   )
 }
 
@@ -36,31 +75,17 @@ const styles = StyleSheet.create({
   },
   text:{
     color: "white",
-    fontSize: 40,
+    fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
   },
-  button: {
-    backgroundColor: '#09256E',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-  },
-  button1: {
+  header:{
     display: "flex", 
-    flexDirection: 'row', 
-    borderRadius: 20, 
-    backgroundColor: "#40465B", 
-    alignSelf: "center",  
-    paddingHorizontal: 65,
-    paddingVertical: 5, 
-    alignItems: "center",
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 30,
-    textAlign: "center",
-    fontWeight: "bold"
+    flexDirection: "row", 
+    justifyContent:  "space-between"
+},
+switch: {
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }], // Resize the switch to make it larger
   },
 });
 
