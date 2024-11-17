@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { Ionicons, FontAwesome} from '@expo/vector-icons'; // Assuming you're using Expo
 
-const CustomInput = ({ placeholder, iconName, }) => {
+const CustomInput = ({ placeholder, iconName, value, onChange}) => {
   return (
     <View style={styles.inputContainer}>
       <FontAwesome name={iconName} size={20} color="#8c8c8c" style={styles.icon} />
@@ -11,6 +11,9 @@ const CustomInput = ({ placeholder, iconName, }) => {
         placeholder={placeholder} 
         placeholderTextColor="#8c8c8c"
         secureTextEntry={placeholder === "Password"? true : false}
+        value={value}
+        onChangeText={onChange}
+        keyboardType={placeholder === "Phone number"? "numeric": ""}
       />
     </View>
   );

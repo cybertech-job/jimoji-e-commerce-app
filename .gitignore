@@ -18,3 +18,10 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+
+# Environment files
+.env
+
+# Firebase admin SDK
+firebase-admin-sdk.json
+.env

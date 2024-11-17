@@ -19,7 +19,6 @@ const Input = ({label, onclick, placeholder, }) => {
             <FontAwesome5 name="edit" size={18} color="rgba(255, 255, 255, 0.25)"  />
         </View>
   </View>
-
   )
 }
 
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         overflow: "hidden",
         justifyContent: "space-between"
-
     },
     input: {
         paddingLeft: 10,

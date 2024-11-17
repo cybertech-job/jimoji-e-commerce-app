@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, Switch, Image, StyleSheet, KeyboardAvoidingView} from 'react-native'
+import {View, Text, Switch, Image, StyleSheet} from 'react-native'
 import { Stack, useRouter } from 'expo-router'
 import Header from '../../../components/profileComponents/header';
 import Input from '../../../components/profileComponents/inputfield';
@@ -79,11 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  header:{
-    display: "flex", 
-    flexDirection: "row", 
-    justifyContent:  "space-between"
-},
 switch: {
     transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }], // Resize the switch to make it larger
   },
