@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {View, Text, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvoidingView} from 'react-native'
 import Logo from '../../../screens/auth/components/Logo'
 import CustomInput from '../../../screens/auth/components/Input'
@@ -6,13 +7,33 @@ import LoginOptions from '../../../screens/auth/components/LoginOptions'
 import { Stack, useRouter } from 'expo-router'
 import { useRecoilState } from 'recoil'
 import { IsUserLoggedInState } from '@/state/atoms/loginstate'
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase";
+import axios from "axios"
 
 const Login = ({navigation}) => {
   const [loggedIn, setLoggedIn] = useRecoilState(IsUserLoggedInState)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
 
   const router = useRouter();  // useRouter hook for navigation
+
+  const handlesubmit = async () => {
+    if (email && password) {
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password)
+        const idToken = await userCredential.user.getIdToken();
+
+        if(userCredential){
+          setLoggedIn(true)
+          router.replace('/(tabs)')
+        }
+      } catch (error) {
+        console.error(error.response?.data?.error || error.message);
+      }
+    }
+  };
 
   return (
   <KeyboardAvoidingView style={styles.container}> 
@@ -26,8 +47,20 @@ const Login = ({navigation}) => {
   </View>
 
   <View>
-    <CustomInput placeholder="Email address" iconName="at" />
-    <CustomInput placeholder="Password" iconName="key" />
+
+    <CustomInput 
+    placeholder="Email address" 
+    iconName="at" value={email} 
+    onChange={email => setEmail(email)}
+    />
+
+    <CustomInput 
+    placeholder="Password" 
+    iconName="key" value={password} 
+    onChange={password => setPassword(password)}
+    secureTextEntry 
+    />
+
     <Text style={{ color: "#8C8C8C", textAlign: "right", fontSize: 12, fontWeight: "bold" }}>
       Forgot Password?
     </Text>
@@ -37,8 +70,7 @@ const Login = ({navigation}) => {
     <TouchableOpacity style={styles.button} 
     onPress={() => 
       {
-        setLoggedIn(true)
-        router.replace('/(tabs)')
+        handlesubmit()
       }
     }
     

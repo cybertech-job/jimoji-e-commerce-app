@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "jimojiecommerceapp",
+    "private_key_id": "9494728adb53eee80719b7ae47b996eae064cf80",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFr9CwsNVLNzAE\nGii+LKBu9NIJnDPzq7XQoMrmxHYKN8n09sENJhdBivSFAgOh5sTGuoppkrEjoFCF\nWtxVUxN+QGabuYtjl1k8+jA2Kwy7EoM+avT2klNyxIurXkBBCvEVf7krvGredCD2\nET4yAkNxbXMBGppYwVJQp6Zt8uJSza0LkFTnbqZH3jBLgKjVBMYq8lo1Yqw2DK3r\nuAIvrYgSQUNjEkFiF260xWkv07Ie+hgTWm5fLn36MRBsZYUdpDikio5QPTckut3p\nrQQhNCkzZx2tiHpTj6JYO6KKHbJwJ4iOJCmctGifMJx4m8kue0xPVpTmAaSqvpFG\neYgga0izAgMBAAECggEADgl/gVxhr7u55UCsjfNLRjWw/zsgFdPLGD3HOEf1kA7A\nEtp0XEOolIS2+07WTlYGuPnFGyZJj8AyBTqtuR1OncEZyB1Fbh2nh4TGH1TVOiiE\nyzux4z+488YDCOaG0unPRXmt2jdS+1dayqvwMxQBNbDSBZYwJPT2YzgLLyvAaFvP\n5uPOtdPy2+JQG4s3zghkci6hSJG/vSmC5K5f1DY4Hg5eUTC8gSCrBdKaPAHmx2Zh\n6LVaGm3by7eybpQS7X/lPcVdyOY8qLxtAobQEBfCb8rsl3kXYkcpZhSZTas3fr2w\n9bkLDYT5kNQfcRP1z4dO5UfbhbUjzSM5YA5DiyZUuQKBgQDhye8kumUOJ8ity0Jr\ne4MvIaOEOneb8UN6iaeg4SifZnMemuR8h4qsDIdWfENDOm43QpeMBp/atk8RQFiT\nYxLU9zfLArme4JFTZSKtaCOfHAPKI4kBTkpMJ2uiOlazYrHgDszEnhnAUq+TW1ne\nJjuxX9c2C7GcsTUlfC1fqHCGFQKBgQDgI0mBkNzjGXki1gD+HqgYZE77rvoaoae6\nIozd3iDFEkXYCqU9RANdYqxsShuFmpIT1mvDn0vVY2ScBLCDRf4XNLBcpwQ+bRQL\nqe80jt9omSfwnUb619k1rmdnOTOsn8OmSDQ3F4PUsC+ysCHAFqep5dA5hh3PH+71\ntlcem1HNpwKBgQCiq0mPvHpx6Fe8XmRL64BnxGR6L2VdBEUJU4NhdNY/gSAPPKjA\nzyYpLh2TQZN0K/Sb+24Tg/JHMHFmjGVESmyW4kVgDWaOAFyzKHoDVLPVPem9CDz8\no9sDYqM5Da7JLqHYOtFsFjuXQ/savwXP9tuqvtHeLi6YJVOU3hISiNgIwQKBgQCM\nDoDILbVZU3mWgxNrt8xiMYwJSXWPXqRoc16C5WKkwp5SOZS3i+BuYlJL+KLqAYR2\nUO5V9xxz4v/jXirOXNZBufLacqL8PzzfbPjEZuLDgbCrchwAcxCPssN6hQv9OngP\nV98I7fC63r1vcxAj8AQk7i4HQ/8shk/TynT18yhS0QKBgEVDrH/0Zsg3CV+RHYTY\nCJFguVB0KYK8iyZGd8tRfD5qtcPXTdnhby2/IhhdWR2JsGiKfkEbK9XxMC92JzzA\nzWAwT0LC7i39TGoE4hyBp3o9oIRnILBJJax81z9/hTr+b3D7lDsBr41mU3YlCXvk\n8AfU2O2uuSUixygUnEdueNa+\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-hgibj@jimojiecommerceapp.iam.gserviceaccount.com",
+    "client_id": "107638781299798758141",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hgibj%40jimojiecommerceapp.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

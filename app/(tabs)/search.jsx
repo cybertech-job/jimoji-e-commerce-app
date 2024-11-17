@@ -3,10 +3,11 @@ import Store from "../../screens/search/Store"
 import ProductsView from "../../screens/search/ProductsView"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import {useAuth} from "../../Api/hooks/useAuth"
 const Stack = createStackNavigator();
 
 export default function Search() {
+
   return (
       <NavigationContainer independent={true} >
       <Stack.Navigator initialRouteName="Store" >

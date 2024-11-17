@@ -104,28 +104,6 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     textAlign: "center",
   },
-  button: {
-    backgroundColor: '#09256E',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-  },
-  button1: {
-    display: "flex", 
-    flexDirection: 'row', 
-    borderRadius: 20, 
-    backgroundColor: "#40465B", 
-    alignSelf: "center",  
-    paddingHorizontal: 65,
-    paddingVertical: 5, 
-    alignItems: "center",
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 30,
-    textAlign: "center",
-    fontWeight: "bold"
-  },
 });
 
 export default Terms

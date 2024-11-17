@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Modal, Animated , StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import CustomKeypad from '../../../screens/auth/components/Keypad'; // Import the custom keypad
-import Logo from '../../../screens/auth/components/Logo';
 import * as Animatable from 'react-native-animatable';
 import check from '../../../assets/img/check.png'
-import { Stack, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
+import axios from 'axios';
 
 const OTPVerificationScreen = ({navigation}) => {
   const [otp, setOtp] = useState(['', '', '', '']);
@@ -13,8 +13,6 @@ const OTPVerificationScreen = ({navigation}) => {
   const animationValue = useRef(new Animated.Value(0)).current;
 
   const router = useRouter();  // useRouter hook for navigation
-
-
 
   const handleKeyPress = (key) => {
     if (key === 'delete') {
@@ -34,13 +32,25 @@ const OTPVerificationScreen = ({navigation}) => {
     }
   };
 
-  const showModal = () => {
-    setModalVisible(true);
-    Animated.timing(animationValue, {
-      toValue: 1,
-      duration: 2000, // Animation duration
-      useNativeDriver: true,
-    }).start();
+  const showModal = async() => {
+
+    const otpValue = otp.join(''); // Combine OTP array into a single string
+    console.warn(otpValue)
+    try {
+      const response = await axios.post('http://192.168.145.75:5000/api/v1/auth/verify', { otp: otpValue });
+      console.log('Response:', response.data);
+
+      setModalVisible(true);
+      Animated.timing(animationValue, {
+        toValue: 1,
+        duration: 2000, // Animation duration
+        useNativeDriver: true,
+      }).start();
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+      alert('Failed to verify OTP. Please try again.');
+    }
+  
   };
 
   const hideModal = () => {
@@ -51,6 +61,7 @@ const OTPVerificationScreen = ({navigation}) => {
         useNativeDriver: true,
       }).start(() => {
         setModalVisible(false);
+        router.push("/screens/auth/Login")
       });
     }, 3000); // Modal will close after 3 seconds
   };
@@ -79,15 +90,16 @@ const OTPVerificationScreen = ({navigation}) => {
     setTimer(30); // Reset the timer to 30 seconds
     setIsActive(true); // Start the timer again
   };
+
   return (
     <View style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <Stack.Screen options={{ headerShown: false }} />
-      <Logo />
-      <Text style={{   color: '#fff', fontSize: 25, fontWeight: '600', textAlign: 'center', marginVertical: 20}}>OTP Verification</Text>
-      <Text style={{color: "white", textAlign: "center", fontSize: 17, marginHorizontal: 20}}>A one time code will be sent to your registered phone number . Verify phone to continue.</Text>
+      <Text style={{ color: '#fff', fontSize: 25, fontWeight: '600', textAlign: 'center', marginVertical: 20 }}>OTP Verification</Text>
+      <Text style={{ color: "white", textAlign: "center", fontSize: 17, marginHorizontal: 20 }}>
+        A one-time code will be sent to your registered phone number. Verify phone to continue.
+      </Text>
       
       <View style={styles.line} />
-      <Text style={{color: "white", textAlign: "center"}}>Enter code</Text>
+      <Text style={{ color: "white", textAlign: "center" }}>Enter code</Text>
 
       {/* OTP Inputs */}
       <View style={styles.otpContainer}>
@@ -100,24 +112,25 @@ const OTPVerificationScreen = ({navigation}) => {
           />
         ))}
       </View>
+
       {timer > 0 ? (
-          <Text style={{color: "white", textAlign: "center", fontSize: 15, marginHorizontal: 20, alignItems: "center"}}> 
-          Didnt receive a code ? Resend code in <Text style={{color: "blue", alignItems: "center"}}>{timer + "s"}</Text> 
-          </Text>
-        ) : (
-      <TouchableOpacity onPress={resetTimer} >
-        <Text style={{  color: '#fff', fontSize: 15, textAlign: "center", fontWeight: "bold"}}>Resend Code</Text>
-      </TouchableOpacity>
-        )
-      }
-      <View style={{marginTop: 20}}>
-      <TouchableOpacity style={styles.button1} onPress={showModal}>
-        <Text style={{  color: '#fff', fontSize: 30, textAlign: "center", fontWeight: "bold"}}>Verify</Text>
-      </TouchableOpacity>
+        <Text style={{ color: "white", textAlign: "center", fontSize: 15, marginHorizontal: 20, alignItems: "center" }}>
+          Didn't receive a code? Resend code in <Text style={{ color: "blue", alignItems: "center" }}>{timer + "s"}</Text>
+        </Text>
+      ) : (
+        <TouchableOpacity onPress={resetTimer}>
+          <Text style={{ color: '#fff', fontSize: 15, textAlign: "center", fontWeight: "bold" }}>Resend Code</Text>
+        </TouchableOpacity>
+      )}
+
+      <View style={{ marginTop: 20 }}>
+        <TouchableOpacity style={styles.button1} onPress={showModal}>
+          <Text style={{ color: '#fff', fontSize: 30, textAlign: "center", fontWeight: "bold" }}>Verify</Text>
+        </TouchableOpacity>
       </View>
 
-      <Text style={{color: "white", textAlign: "center", marginTop: 20}}>From messages</Text>
-      <Text style={{color: "white", textAlign: "center", fontSize: 20}}>****</Text>
+      <Text style={{ color: "white", textAlign: "center", marginTop: 20 }}>From messages</Text>
+      <Text style={{ color: "white", textAlign: "center", fontSize: 20 }}>****</Text>
 
       {/* Custom Keypad */}
       <CustomKeypad onKeyPress={handleKeyPress} />
