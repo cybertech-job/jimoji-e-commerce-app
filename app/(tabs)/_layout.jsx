@@ -3,19 +3,12 @@ import React from 'react';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import AntDesign from '@expo/vector-icons/AntDesign';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { View } from 'react-native';
-import { useNavigationState, useRoute } from '@react-navigation/native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
-  const currentRoute = useRoute()
   // const tabBarStyle = currentRoute === 'ProductDetails' ? { display: 'none' } : { backgroundColor: "#0D0F18" };
-console.log(currentRoute)
 
   return (
     <Tabs
