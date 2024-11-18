@@ -16,7 +16,8 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors["dark"].tint,
         headerShown: false,
         tabBarStyle: {
-          display: "flex"
+          display: "flex",
+          backgroundColor: "black"
         }
         
       }}>
@@ -29,7 +30,7 @@ export default function TabLayout() {
             name="home" 
             size={20} 
             color={color} 
-            style={{ marginBottom: -20 }}
+            style={{ marginBottom: 5 }}
             />
 
           ),
@@ -44,7 +45,7 @@ export default function TabLayout() {
             name="store-search-outline" 
             size={20} 
             color={color} 
-            style={{ marginBottom: -20 }}
+            style={{ marginBottom: 5 }}
             />
 
             // <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
@@ -60,10 +61,8 @@ export default function TabLayout() {
           name="menu-fold" 
           size={20} 
           color={color}
-          style={{ marginBottom: -20 }}
+          style={{ marginBottom: 5 }}
           />
-          
-            
           ),
         }}
       />

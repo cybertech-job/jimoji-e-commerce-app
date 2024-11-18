@@ -80,7 +80,7 @@ export default function Store({navigation}) {
   }
 
   return (
-<View style={{ flex: 1, backgroundColor: "#0D0F18", paddingHorizontal: 18, paddingTop: 50}}>
+<View style={{ flex: 1, backgroundColor: "#0D0F18", paddingHorizontal: 8, paddingTop: 10}}>
 <View style={styles.body}>
   <View style={{display: "flex", flex: 1, flexDirection: "column"}}>
     <UserAvatar />

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#252535', // Set your preferred background color
     borderRadius: 20, // Adjust for rounded edges
     paddingHorizontal: 10,
-    paddingVertical: 12,
+    paddingVertical: 5,
     marginVertical: 10,
   },
   icon: {
