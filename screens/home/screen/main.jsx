@@ -22,8 +22,8 @@ export default function Main({navigation}) {
 }
 const styles = StyleSheet.create({
   body: {
-    flexGrow: 1,
-    paddingTop: 50,
+    flex: 1,
+    paddingTop: 10,
     backgroundColor: "#0D0F18"
   },
   text1: {

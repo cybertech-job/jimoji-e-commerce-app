@@ -33,10 +33,10 @@ const ProductDetails = () => {
         <View style={styles.imageContainer}>
           <View style={styles.header}>
             <TouchableOpacity onPress={() => router.back()}>
-              <Ionicons name="chevron-back" size={34} color="#6A6A6A" />
+              <Ionicons name="chevron-back" size={30} color="#6A6A6A" />
             </TouchableOpacity>
             <TouchableOpacity>
-              <MaterialCommunityIcons name="dots-vertical" size={34} color="#6A6A6A" />
+              <MaterialCommunityIcons name="dots-vertical" size={30} color="#6A6A6A" />
             </TouchableOpacity>
           </View>
 
@@ -142,7 +142,7 @@ export default ProductDetails
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    paddingTop: 10,
     backgroundColor: "#070644",
     flex: 1,
     flexDirection: "column"

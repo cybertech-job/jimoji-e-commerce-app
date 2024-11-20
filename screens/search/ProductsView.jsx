@@ -35,7 +35,7 @@ export default function ProductsView({route, navigation}) {
       );
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#0D0F18", paddingHorizontal: 8, paddingTop: 40}}>
+    <View style={{ flex: 1, backgroundColor: "#0D0F18", paddingHorizontal: 8, paddingTop: 10}}>
         <View style={{display: "flex", flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center", marginBottom: 15}}>
         <TouchableOpacity onPress={() => navigation.navigate("Store")}>
             <Ionicons name="chevron-back" size={25} color="#6A6A6A" />

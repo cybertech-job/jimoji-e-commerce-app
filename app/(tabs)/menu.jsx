@@ -11,7 +11,7 @@ export default function Menu() {
 const styles = StyleSheet.create({
     body: {
       flex: 1,
-      paddingTop: 32,
+      paddingTop: 5,
       backgroundColor: "#0D0F18"
     },
     text1: {

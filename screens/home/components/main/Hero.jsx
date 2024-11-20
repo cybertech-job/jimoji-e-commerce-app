@@ -46,7 +46,7 @@ export default function Hero({navigation}) {
                 <Text style={styles.herotext}>
                     All Apple Gadgets at your feet
                 </Text>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Store')}>
                     <Text style={styles.buttontext}>
                         Shop Now
                     </Text>
@@ -64,7 +64,7 @@ export default function Hero({navigation}) {
 
 const styles = StyleSheet.create({
     main: {
-        marginHorizontal: 18,
+        marginHorizontal: 15,
         marginTop: 15
     },
     searchBar: {

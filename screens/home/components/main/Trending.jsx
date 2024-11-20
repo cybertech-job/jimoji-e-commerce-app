@@ -22,7 +22,7 @@ export default function Trending() {
 
 
   return (
-    <View style={{paddingTop: 20, flex:1}}>
+    <View style={{paddingTop: 10, flex:1}}>
         <Text style={{color: "white",marginLeft: 18, fontSize: 16, fontWeight: "bold"}}>Trending</Text>
 
         <FlatList
@@ -40,7 +40,7 @@ export default function Trending() {
 const styles = StyleSheet.create({
     list: {
         marginLeft: 18,
-        marginTop: 20,
+        marginTop: 10,
         
 
     },

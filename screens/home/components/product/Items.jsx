@@ -3,7 +3,7 @@ import React from 'react'
 import { useRouter } from 'expo-router';
 
 export default function Items({navigation}) {
-    const ItemSeparator = () => <View style={styles.separator} />;
+  const ItemSeparator = () => <View style={styles.separator} />;
   const router = useRouter()
 
     const data = [

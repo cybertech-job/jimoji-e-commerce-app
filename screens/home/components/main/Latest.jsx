@@ -23,7 +23,7 @@ export default function Latest() {
 
 
   return (
-    <View style={{paddingTop: 20,}}>
+    <View style={{paddingTop: 10,}}>
         <Text style={{color: "white",marginLeft: 18, fontSize: 16, fontWeight: "bold"}}>Latest</Text>
 
         <FlatList
@@ -41,7 +41,7 @@ export default function Latest() {
 const styles = StyleSheet.create({
     list: {
         marginLeft: 18,
-        marginTop: 20
+        marginTop: 10
 
     },
     item: {

@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#0D0F18",
   },
   scrollContainer: {
-    flexGrow: 1,
-    paddingTop: 50,
+    flex: 1,
+    paddingTop: 10,
     paddingHorizontal: 20,
   },
   text: {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#09256E',
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 20,
     borderRadius: 20,
   },
