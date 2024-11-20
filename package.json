@@ -29,6 +29,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "expo": "^52.0.7",
+    "expo-auth-session": "^6.0.0",
     "expo-constants": "~17.0.3",
     "expo-font": "~13.0.1",
     "expo-linear-gradient": "~14.0.1",

@@ -2,7 +2,6 @@ import { View, Text, TextInput, TouchableOpacity, Keyboard, StyleSheet, FlatList
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
 export default function Hero({navigation}) {
     const image = require("@/assets/img/laptop.png")
     const data = [
@@ -11,7 +10,6 @@ export default function Hero({navigation}) {
         { id: '3', title: 'Ipad' },
         { id: '4', title: 'Airpod' },
         { id: '5', title: 'IWatch' },
-
       ];
 
       const renderItem = ({ item }) => (
@@ -52,12 +50,10 @@ export default function Hero({navigation}) {
                     </Text>
                 </TouchableOpacity>
             </View>
-
             <View>
                 <Image source={image} />
             </View>
         </View>
-
     </View>
   )
 }
@@ -78,8 +74,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         overflow: "hidden"
-        
-
     },
     input: {
     paddingLeft: 10,
