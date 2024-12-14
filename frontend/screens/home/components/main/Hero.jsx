@@ -1,8 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity, Keyboard, StyleSheet, FlatList, Image } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import { useRouter } from 'expo-router';
 export default function Hero({navigation}) {
+    const router = useRouter()
     const image = require("@/assets/img/laptop.png")
     const data = [
         { id: '1', title: 'IPhone' },
@@ -44,7 +45,7 @@ export default function Hero({navigation}) {
                 <Text style={styles.herotext}>
                     All Apple Gadgets at your feet
                 </Text>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Store')}>
+                <TouchableOpacity style={styles.button} onPress={() => router.push("/search")}>
                     <Text style={styles.buttontext}>
                         Shop Now
                     </Text>

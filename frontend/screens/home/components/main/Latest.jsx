@@ -1,7 +1,8 @@
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import React from 'react'
-
-export default function Latest() {
+import { useRouter } from 'expo-router';
+export default function Latest({navigation}) {
+  const router = useRouter()
 
     const data = [
         { id: '1', title: 'Samsung Z fold 5', price: '499.00', image: require('@/assets/img/fold.png') },
@@ -11,8 +12,8 @@ export default function Latest() {
       ];
 
       const renderItem = ({ item }) => (
-        <View style={styles.item}>
-            <View style={styles.imgbg}>
+        <View style={styles.item} onPress={() => router.push('/HomeProduct')}>
+            <View style={styles.imgbg} >
                 <Image source={item.image} />
             </View>
         

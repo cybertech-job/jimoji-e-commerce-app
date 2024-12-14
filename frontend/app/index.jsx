@@ -2,11 +2,11 @@ import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { StatusBar } from 'react-native';
-import { RecoilRoot, useRecoilState } from 'recoil';
+import {useRecoilState } from 'recoil';
 import {IsUserLoggedInState} from "@/state/atoms/loginstate"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -32,8 +32,9 @@ export default function App() {
         router.replace('/(tabs)');
 
       }else {
-        router.replace('/screens/auth/Welcome');
-        
+        if(loaded){   
+          router.replace('/screens/auth/Welcome');
+        }
       }
     }
   }, [loaded, IsUserLoggedInState]);

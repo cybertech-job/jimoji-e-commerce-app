@@ -63,7 +63,7 @@ const User = () => {
 
         <Setting title="Notification" value={faceid} type="switch" onPress={(value) => setFaceid(value)} />
         <Setting title="History" value={useNotification} type="switch" onPress={(value) => setUseNotification(value)} />
-        <Setting title="Verification Status" value={faceid} type="button" />
+        <Setting title="Verification Status" value={faceid} type="button" onPress={() => router.push("/screens/profile/VerificationStatus")}/>
         <Setting title="Wishist" value={faceid} type="button" />
         <Setting title="Favorites" value={faceid} type="button" onPress={(value) => setFaceid(value)} />
         <Setting title="Contact us" type="button" onPress={() => router.push("/screens/profile/ContactUs")} />

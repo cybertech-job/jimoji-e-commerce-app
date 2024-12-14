@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import { Ionicons, FontAwesome} from '@expo/vector-icons'; // Assuming you're using Expo
+import { FontAwesome} from '@expo/vector-icons'; // Assuming you're using Expo
 
 const CustomInput = ({ placeholder, iconName, value, onChange}) => {
   return (
